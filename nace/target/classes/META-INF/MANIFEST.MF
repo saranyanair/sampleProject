@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: ccuk
+Build-Jdk: 17.0.2
+Implementation-Title: nace
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: sample
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/nace
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,16 @@
+package com.sample.nace.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.sample.nace.model.NaceDataModel;
+
+@Service
+public class NaceService {
+	
+	public void saveNaceDetails(List<NaceDataModel> requestData) {
+				
+	}
+
+}

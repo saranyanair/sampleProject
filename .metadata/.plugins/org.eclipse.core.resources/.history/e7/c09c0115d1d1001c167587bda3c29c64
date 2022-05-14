@@ -1,0 +1,47 @@
+package com.sample.nace.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sample.nace.entity.Nace;
+import com.sample.nace.model.NaceDataModel;
+import com.sample.nace.repo.NaceRepo;
+import com.sample.nace.web.PathVariable;
+
+@Service
+public class NaceService {
+	
+	@Autowired
+	NaceRepo naceRepo;
+	
+	public void saveNaceDetails(List<NaceDataModel> requestData) {
+		
+		if(null!=requestData && !requestData.isEmpty()) {
+			
+			for(NaceDataModel naceModel:requestData) {
+			 ModelMapper modelMapper = new ModelMapper();
+			 Nace naceEntity = modelMapper.map(naceModel, Nace.class);
+			 naceRepo.save(naceEntity);
+		}
+	}
+
+}
+	
+	public Optional<NaceDataModel> retrieveNaceDetails(String order) {
+		
+		NaceDataModel naceResponseModel = new NaceDataModel();
+		Optional<Nace> nace = naceRepo.findByOrder(order);
+
+		if (!nace.isPresent()) {
+			 ModelMapper modelMapper = new ModelMapper();
+			 naceResponseModel = modelMapper.map(nace, NaceDataModel.class);
+		}
+		return naceResponseModel;
+		
+		
+	}
+}

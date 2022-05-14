@@ -1,0 +1,59 @@
+package com.sample.nace.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@Entity
+@Table(name = "nace")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Nace {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
+	private Long id;
+	
+	@Column(name="order")
+    private String order;
+	
+	@Column(name="level")
+	private int level;
+	
+	@Column(name="code")
+	private String code;
+	
+	@Column(name="parent")
+	private String parent;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="description")
+	private String includedItems;
+	
+	@Column(name="included_items_extn")
+	private String includedItemsExtn;
+	
+	@Column(name="ruling")
+	private String ruling;
+	
+	@Column(name="excluded_Items")
+	private String excludedItems;
+	
+	@Column(name="reference")
+	private String reference;
+
+}

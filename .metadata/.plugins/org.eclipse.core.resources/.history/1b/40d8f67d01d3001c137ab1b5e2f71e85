@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package com.sample.nace.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * @author ccuk
+ *
+ */
+@Getter
+@Setter
+public class NaceDataModel {
+	
+	private String orderNumber;
+	
+	private int level;
+	
+	private String code;
+	
+	private String parent;
+	
+	private String description;
+	
+	private String includedItems;
+	
+	private String includedItemsExtn;
+	
+	private String ruling;
+	
+	private String excludedItems;
+	
+	private String referance;
+
+}

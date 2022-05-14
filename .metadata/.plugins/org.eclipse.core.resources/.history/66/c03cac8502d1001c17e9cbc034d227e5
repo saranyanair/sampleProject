@@ -1,0 +1,6 @@
+package com.sample.nace.repo;
+
+@Repository
+public interface NaceRepository extends JpaRepository<Nace, Long>{
+	
+}

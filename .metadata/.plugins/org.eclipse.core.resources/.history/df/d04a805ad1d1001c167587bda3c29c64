@@ -1,0 +1,9 @@
+package com.sample.nace.exceptions;
+
+public class NaceException extends RuntimeException {
+	
+	public void NaceException(String exception) {
+		super(exception);
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.sample.nace.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+public class Nace {
+
+}

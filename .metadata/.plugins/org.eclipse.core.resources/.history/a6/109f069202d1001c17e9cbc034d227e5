@@ -1,0 +1,9 @@
+package com.sample.nace.repo;
+
+import org.springframework.stereotype.Repository;
+import com.sample.nace.entity.Nace;
+
+@Repository
+public interface NaceRepository extends JpaRepository<Nace, Long>{
+	
+}
