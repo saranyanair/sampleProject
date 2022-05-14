@@ -35,7 +35,7 @@ public class NaceService {
 		
 		NaceDataModel naceResponseModel = new NaceDataModel();
 		Optional<Nace> nace = naceRepo.findByOrderNumber(order);
-		if (!nace.isPresent()) {
+		if (nace.isPresent()) {
 			 ModelMapper modelMapper = new ModelMapper();
 			 naceResponseModel = modelMapper.map(nace, NaceDataModel.class);
 		}

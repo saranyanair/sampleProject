@@ -40,7 +40,6 @@ public class NaceController {
 	
 	@GetMapping("/getNaceDetails/{order}")
 	public Optional<NaceDataModel> retrieveNaceDetails(@PathVariable String order) {
-		//Optional<Student> student = studentRepository.findById(id);
 		Optional<NaceDataModel> responseModel= naceService.retrieveNaceDetails(order);
 		if (!responseModel.isPresent()) {
 			throw new NaceException("Details not found");
