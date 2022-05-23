@@ -9,6 +9,6 @@ import com.sample.nace.entity.Nace;
 @Repository
 public interface NaceRepo extends JpaRepository<Nace, Long>{
 
-	Optional<Nace> findByOrderNumber(String order);
+	Nace findByOrderNumber(String order);
 	
 }

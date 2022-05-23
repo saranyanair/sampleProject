@@ -10,7 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @author ccuk
+ * @author saranya
  *
  */
 @Getter
@@ -39,6 +39,5 @@ public class NaceDataModel {
 	
 	private String referance;
 
-	
 
 }

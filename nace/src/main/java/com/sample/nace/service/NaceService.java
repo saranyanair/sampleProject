@@ -11,36 +11,34 @@ import com.sample.nace.entity.Nace;
 import com.sample.nace.model.NaceDataModel;
 import com.sample.nace.repo.NaceRepo;
 
-
 @Service
 public class NaceService {
-	
+
 	@Autowired
 	NaceRepo naceRepo;
-	
+
 	public void saveNaceDetails(List<NaceDataModel> requestData) {
-		
-		if(null!=requestData && !requestData.isEmpty()) {
-			
-			for(NaceDataModel naceModel:requestData) {
-			 ModelMapper modelMapper = new ModelMapper();
-			 Nace naceEntity = modelMapper.map(naceModel, Nace.class);
-			 naceRepo.save(naceEntity);
+
+		if (null != requestData && !requestData.isEmpty()) {
+
+			for (NaceDataModel naceModel : requestData) {
+				ModelMapper modelMapper = new ModelMapper();
+				Nace naceEntity = modelMapper.map(naceModel, Nace.class);
+				naceRepo.save(naceEntity);
+			}
 		}
+
 	}
 
-}
-	
-	public Optional<NaceDataModel> retrieveNaceDetails(String order) {
-		
+	public NaceDataModel retrieveNaceDetails(String order) {
+
 		NaceDataModel naceResponseModel = new NaceDataModel();
-		Optional<Nace> nace = naceRepo.findByOrderNumber(order);
+		Optional<Nace> nace = Optional.ofNullable(naceRepo.findByOrderNumber(order));
 		if (nace.isPresent()) {
-			 ModelMapper modelMapper = new ModelMapper();
-			 naceResponseModel = modelMapper.map(nace, NaceDataModel.class);
+			ModelMapper modelMapper = new ModelMapper();
+			naceResponseModel = modelMapper.map(nace, NaceDataModel.class);
 		}
-		return Optional.ofNullable(naceResponseModel);
-		
-		
+		return naceResponseModel;
+
 	}
 }

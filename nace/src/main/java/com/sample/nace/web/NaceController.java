@@ -19,7 +19,6 @@ import com.sample.nace.exceptions.NaceException;
 import com.sample.nace.model.NaceDataModel;
 import com.sample.nace.service.NaceService;
 
-
 /**
  * @author saranya
  *
@@ -27,21 +26,21 @@ import com.sample.nace.service.NaceService;
 @RestController
 @RequestMapping(path = "/nace")
 public class NaceController {
-	
+
 	@Autowired
 	NaceService naceService;
-	
+
 	@PostMapping("/save")
 	public ResponseEntity<Object> createStudent(@RequestBody List<NaceDataModel> requestData) {
 		naceService.saveNaceDetails(requestData);
 		return ResponseEntity.noContent().build();
-	
+
 	}
-	
+
 	@GetMapping("/getNaceDetails/{order}")
-	public Optional<NaceDataModel> retrieveNaceDetails(@PathVariable String order) {
-		Optional<NaceDataModel> responseModel= naceService.retrieveNaceDetails(order);
-		if (!responseModel.isPresent()) {
+	public NaceDataModel retrieveNaceDetails(@PathVariable String order) {
+		NaceDataModel responseModel = naceService.retrieveNaceDetails(order);
+		if (null == responseModel) {
 			throw new NaceException("Details not found");
 		}
 		return responseModel;

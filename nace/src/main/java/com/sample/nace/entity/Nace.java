@@ -18,9 +18,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "nace")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Nace {
 	
 	
@@ -48,6 +46,5 @@ public class Nace {
 	
 	private String reference;
 
-	
 
 }
