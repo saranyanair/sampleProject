@@ -31,7 +31,7 @@ public class NaceController {
 	NaceService naceService;
 
 	@PostMapping("/save")
-	public ResponseEntity<Object> createStudent(@RequestBody List<NaceDataModel> requestData) {
+	public ResponseEntity<Object> saveNaceDetails(@RequestBody List<NaceDataModel> requestData) {
 		naceService.saveNaceDetails(requestData);
 		return ResponseEntity.noContent().build();
 
@@ -45,4 +45,9 @@ public class NaceController {
 		}
 		return responseModel;
 	}
+	
+	@GetMapping("/getAllDetails")
+    public List<NaceDataModel> getAllNaceDetails() {
+        return naceService.getAllNaceDetails();
+    }
 }

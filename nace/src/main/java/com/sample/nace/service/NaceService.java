@@ -1,5 +1,6 @@
 package com.sample.nace.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,5 +41,21 @@ public class NaceService {
 		}
 		return naceResponseModel;
 
+	}
+	
+	public List<NaceDataModel> getAllNaceDetails(){
+		
+		List<NaceDataModel> responseModel= new ArrayList<NaceDataModel>();
+		List<Nace> responseEntities=naceRepo.findAll();
+		if(null!=responseEntities && !responseEntities.isEmpty()) {
+			for(Nace nace:responseEntities) {
+				ModelMapper modelMapper = new ModelMapper();
+				NaceDataModel naceResponseModel =new NaceDataModel();
+				naceResponseModel = modelMapper.map(nace, NaceDataModel.class);
+				responseModel.add(naceResponseModel);
+			}
+		}
+		return responseModel;
+		
 	}
 }

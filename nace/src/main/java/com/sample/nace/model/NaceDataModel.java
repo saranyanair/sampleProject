@@ -39,5 +39,4 @@ public class NaceDataModel {
 	
 	private String referance;
 
-
 }
